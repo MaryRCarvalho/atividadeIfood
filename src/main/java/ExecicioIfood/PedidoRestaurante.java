@@ -22,27 +22,31 @@ public class PedidoRestaurante extends Observable implements IPedido{
     }
 
     @Override
-    public String pagamentoValidado() {
-        return "";
+    public boolean pagamentoValidado() {
+        return estado.validarPagamento(this);
     }
 
     @Override
-    public String preparando() {
-        return "";
+    public boolean preparando() {
+
+        return estado.prepararPedido(this);
     }
 
     @Override
-    public String entregando() {
-        return "";
+    public boolean entregando() {
+
+        return estado.rotaDeEntrega(this);
     }
 
     @Override
-    public String entregue() {
-        return "";
+    public boolean entregue() {
+
+        return estado.finalizar(this);
     }
 
     @Override
-    public String cancelado() {
-        return "";
+    public boolean cancelado() {
+
+        return estado.cancelar(this);
     }
 }
