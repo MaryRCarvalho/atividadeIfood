@@ -1,6 +1,6 @@
 package ExecicioIfood;
 
-public class PedidoEstadoPagamentoValidade {
+public class PedidoEstadoPagamentoValidade extends PedidoEstado {
 
     private PedidoEstadoPagamentoValidade() {};
     private static PedidoEstadoPagamentoValidade instance = new PedidoEstadoPagamentoValidade();
@@ -10,6 +10,16 @@ public class PedidoEstadoPagamentoValidade {
 
     public String getEstado() {
         return "Pagamento validado";
+    }
+
+    public boolean rotaDeEntrega(IPedido pedido) {
+        pedido.setEstado(PedidoEstadoRotaEntrega.getInstance());
+        return true;
+    }
+
+    public boolean cancelar(IPedido pedido) {
+        pedido.setEstado(PedidoEstadoCancelado.getInstance());
+        return true;
     }
 
 }

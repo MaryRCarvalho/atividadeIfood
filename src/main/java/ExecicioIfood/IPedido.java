@@ -2,9 +2,11 @@ package ExecicioIfood;
 
 public interface IPedido {
 
-    boolean pagamentoValidado();
-    boolean preparando();
-    boolean entregando();
-    boolean entregue();
-    boolean cancelado();
+    void setEstado(PedidoEstado estado);
+    void pagamentoValidado();
+    void preparando();
+    void entregando();
+    void entregue();
+    void cancelado();
+
 }

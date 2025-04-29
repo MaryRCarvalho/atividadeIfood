@@ -1,6 +1,6 @@
 package ExecicioIfood;
 
-public class PedidoEstadoCancelado {
+public class PedidoEstadoCancelado extends PedidoEstado {
 
     private PedidoEstadoCancelado() {};
     private static PedidoEstadoCancelado instance = new PedidoEstadoCancelado();

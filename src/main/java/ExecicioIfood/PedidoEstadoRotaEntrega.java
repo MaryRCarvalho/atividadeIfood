@@ -10,4 +10,14 @@ public class PedidoEstadoRotaEntrega {
     public String getEstado() {
         return "Pedindo em rota de entrega";
     }
+    
+    public boolean entregue(IPedido pedido) {
+        pedido.setEstado(PedidoEstadoEntregue.getInstance());
+        return true;
+    }
+
+    public boolean cancelar(IPedido pedido) {
+        pedido.setEstado(PedidoEstadoCancelado.getInstance());
+        return true;
+    }
 }

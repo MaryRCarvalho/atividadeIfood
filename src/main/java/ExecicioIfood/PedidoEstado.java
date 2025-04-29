@@ -4,23 +4,23 @@ public abstract class PedidoEstado {
 
     public abstract String getEstado();
 
-    public boolean validarPagamento(PedidoFactory pedido) {
+    public boolean validarPagamento(IPedido pedido) {
         return false;
     }
 
-    public boolean prepararPedido(PedidoFactory pedido) {
+    public boolean prepararPedido(IPedido pedido) {
         return false;
     }
 
-    public boolean rotaDeEntrega(PedidoFactory pedido) {
+    public boolean rotaDeEntrega(IPedido pedido) {
         return false;
     }
 
-    public boolean finalizar(PedidoFactory pedido) {
+    public boolean finalizar(IPedido pedido) {
         return false;
     }
 
-    public boolean cancelar(PedidoFactory pedido) {
+    public boolean cancelar(IPedido pedido) {
         return false;
     }
 }

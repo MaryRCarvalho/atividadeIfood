@@ -7,46 +7,67 @@ public class PedidoRestaurante extends Observable implements IPedido{
     private String itemPedido;
     private PedidoEstado estado;
 
-    public PedidoRestaurante(String itemPedido){
-        this.itemPedido = itemPedido;
-        this.estado = PedidoEstadoPagamentoValidade.getInstance();
-    }
-
     public void setEstado(PedidoEstado estado) {
         this.estado = estado;
     }
 
-    public void estadoPedido() {
+    public PedidoEstado getEstado() {
+         return estado;
+    }
+
+    public void setItemPedido(String itemPedido){
+        this.itemPedido = itemPedido;
+    }
+
+    public PedidoEstado getItemPedido() {
+         return itemPedido;
+    }
+
+    private void notificarCliente() {
         setChanged();
         notifyObservers();
     }
 
     @Override
-    public boolean pagamentoValidado() {
-        return estado.validarPagamento(this);
+    public void pagamentoValidado() {
+        boolean resultado = estado.validarPagamento(this);
+        if resultado == true {
+            notificarCliente()
+        }
     }
 
     @Override
-    public boolean preparando() {
+    public void preparando() {
 
-        return estado.prepararPedido(this);
+        boolean resultado = estado.prepararPedido(this);
+        if resultado == true {
+            notificarCliente()
+        }
     }
 
     @Override
-    public boolean entregando() {
+    public void entregando() {
 
-        return estado.rotaDeEntrega(this);
+        boolean resultado = estado.rotaDeEntrega(this);
+        if resultado == true {
+            notificarCliente()
+        }
     }
 
     @Override
-    public boolean entregue() {
-
-        return estado.finalizar(this);
+    public void entregue() {
+        boolean resultado = estado.finalizar(this);
+        if resultado == true {
+            notificarCliente()
+        }
     }
 
     @Override
-    public boolean cancelado() {
+    public void cancelado() {
 
-        return estado.cancelar(this);
+        boolean resultado = estado.cancelar(this);
+        if resultado == true {
+            notificarCliente()
+        }
     }
 }
