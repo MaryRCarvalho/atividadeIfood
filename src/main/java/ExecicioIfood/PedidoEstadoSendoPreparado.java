@@ -1,6 +1,6 @@
 package ExecicioIfood;
 
-public class PedidoEstadoSendoPreparado {
+public class PedidoEstadoSendoPreparado extends PedidoEstado{
 
     private PedidoEstadoSendoPreparado() {};
     private static PedidoEstadoSendoPreparado instance = new PedidoEstadoSendoPreparado();

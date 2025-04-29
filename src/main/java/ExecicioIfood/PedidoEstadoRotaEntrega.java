@@ -1,6 +1,6 @@
 package ExecicioIfood;
 
-public class PedidoEstadoRotaEntrega {
+public class PedidoEstadoRotaEntrega extends PedidoEstado {
     private PedidoEstadoRotaEntrega() {};
     private static PedidoEstadoRotaEntrega instance = new PedidoEstadoRotaEntrega();
     public static PedidoEstadoRotaEntrega getInstance() {

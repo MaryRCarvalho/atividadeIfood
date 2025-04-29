@@ -19,7 +19,7 @@ public class PedidoRestaurante extends Observable implements IPedido{
         this.itemPedido = itemPedido;
     }
 
-    public PedidoEstado getItemPedido() {
+    public String getItemPedido() {
          return itemPedido;
     }
 
@@ -31,8 +31,8 @@ public class PedidoRestaurante extends Observable implements IPedido{
     @Override
     public void pagamentoValidado() {
         boolean resultado = estado.validarPagamento(this);
-        if resultado == true {
-            notificarCliente()
+        if (resultado == true) {
+            notificarCliente();
         }
     }
 
@@ -40,8 +40,8 @@ public class PedidoRestaurante extends Observable implements IPedido{
     public void preparando() {
 
         boolean resultado = estado.prepararPedido(this);
-        if resultado == true {
-            notificarCliente()
+        if (resultado == true) {
+            notificarCliente();
         }
     }
 
@@ -49,16 +49,16 @@ public class PedidoRestaurante extends Observable implements IPedido{
     public void entregando() {
 
         boolean resultado = estado.rotaDeEntrega(this);
-        if resultado == true {
-            notificarCliente()
+        if (resultado == true) {
+            notificarCliente();
         }
     }
 
     @Override
     public void entregue() {
         boolean resultado = estado.finalizar(this);
-        if resultado == true {
-            notificarCliente()
+        if (resultado == true) {
+            notificarCliente();
         }
     }
 
@@ -66,8 +66,8 @@ public class PedidoRestaurante extends Observable implements IPedido{
     public void cancelado() {
 
         boolean resultado = estado.cancelar(this);
-        if resultado == true {
-            notificarCliente()
+        if (resultado == true) {
+            notificarCliente();
         }
     }
 }

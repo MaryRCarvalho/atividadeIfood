@@ -12,8 +12,8 @@ public class PedidoEstadoPagamentoValidade extends PedidoEstado {
         return "Pagamento validado";
     }
 
-    public boolean rotaDeEntrega(IPedido pedido) {
-        pedido.setEstado(PedidoEstadoRotaEntrega.getInstance());
+    public boolean sendoPreparado(IPedido pedido) {
+        pedido.setEstado(PedidoEstadoSendoPreparado.getInstance());
         return true;
     }
 
