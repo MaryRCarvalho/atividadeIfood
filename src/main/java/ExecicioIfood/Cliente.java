@@ -17,9 +17,14 @@ public class Cliente implements Observer {
         return this.ultimaNotificacao;
     }
 
+    public void acompanhar(PedidoRestaurante pedido) {
+        pedido.addObserver(this);
+    }
+
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(Observable pedido, Object arg1) {
+        this.ultimaNotificacao = this.nome + ", seu pedido está: " + pedido.toString();
 
     }
 }
