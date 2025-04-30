@@ -8,12 +8,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PedidoTest {
 
     private IPedido pedido;
+    private Cliente cliente;
 
     @BeforeEach
     void setUp(){
+        cliente = new Cliente("Ana");
         pedido = PedidoFactory.obterPedido("PedidoRestaurante");
         pedido.setEstado(PedidoEstadoPagamentoValidade.getInstance());
         pedido.setItemPedido("Hamburger");
+    }
+
+    void deveNotificarCliente() {
+        cliente.acompanhar(pedido);
+        pedido.notificarCliente();
+        assertEquals("Ana, seu pedido está: ", aluno.getUltimaNotificacao());
     }
 
     @Test
