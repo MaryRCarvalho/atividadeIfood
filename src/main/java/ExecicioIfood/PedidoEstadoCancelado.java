@@ -9,6 +9,6 @@ public class PedidoEstadoCancelado extends PedidoEstado {
     }
 
     public String getEstado() {
-        return "Pedindo cancelado";
+        return "Pedido cancelado";
     }
 }

@@ -9,6 +9,6 @@ public class PedidoEstadoEntregue extends PedidoEstado {
     }
 
     public String getEstado() {
-        return "Pedindo entregue";
+        return "Pedido entregue";
     }
 }

@@ -8,7 +8,7 @@ public class PedidoEstadoRotaEntrega extends PedidoEstado {
     }
 
     public String getEstado() {
-        return "Pedindo em rota de entrega";
+        return "Pedido em rota de entrega";
     }
     
     public boolean entregue(IPedido pedido) {

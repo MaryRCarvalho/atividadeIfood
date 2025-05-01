@@ -20,26 +20,36 @@ class PedidoTest {
 
     void deveNotificarCliente() {
         cliente.acompanhar(pedido);
-        pedido.notificarCliente();
-        assertEquals("Ana, seu pedido está: ", aluno.getUltimaNotificacao());
+        assertEquals("Pagamento validado", pedido.getEstado());
     }
 
     @Test
-    void ValidarEmPreparoQuandoEmEntrega(){
+    void ValidarEmPreparoQuandoPagamentoValido(){
+        pedido.preparando();
+        assertEquals ("Pedido sendo preparado", pedido.getEstado().getEstado());
+        assertEquals ("Ana, seu pedido está: Pedido sendo preparado", cliente.getUltimaNotificacao());
+    }
+
+    @Test
+    void ValidarEmPreparoQuandoPagamentoValido(){
         pedido.entregando();
-        assertEquals ("Pedindo em rota de entrega", pedido.getEstado().getEstado());
+        assertEquals ("Pagamento validado", pedido.getEstado().getEstado());
+        assertEquals ("Ana, seu pedido está: Pagamento validado", cliente.getUltimaNotificacao());
     }
 
     @Test
-    void ValidarFinalizadoQuandoEmEntrega(){
+    void ValidarFinalizadoQuandoPagamentoValido(){
         pedido.entregue();
         assertEquals ("Pagamento validado", pedido.getEstado().getEstado());
+        assertEquals ("Ana, seu pedido está: Pagamento validado", cliente.getUltimaNotificacao());
     }
 
     @Test
-    void ValidarCanceladoQuandoEmEntrega(){
+    void ValidarCanceladoQuandoPagamentoValido(){
         pedido.cancelado();
-        assertEquals ("Pedindo cancelado", pedido.getEstado().getEstado());
+        assertEquals ("Pedido cancelado", pedido.getEstado().getEstado());
+        assertEquals ("Ana, seu pedido está: Pedido cancelado", cliente.getUltimaNotificacao());
     }
+    
 //fazer para todos os estados possíveis
 }
