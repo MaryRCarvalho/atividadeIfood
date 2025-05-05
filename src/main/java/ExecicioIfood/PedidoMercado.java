@@ -57,7 +57,7 @@ public class PedidoMercado extends Observable implements IPedido{
 
     @Override
     public void entregue() {
-        boolean resultado = estado.finalizar(this);
+        boolean resultado = estado.entregue(this);
         if (resultado == true) {
             notificarCliente();
         }

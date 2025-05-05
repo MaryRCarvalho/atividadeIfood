@@ -17,7 +17,7 @@ public class Cliente implements Observer {
         return this.ultimaNotificacao;
     }
 
-    public void acompanhar(PedidoRestaurante pedido) {
+    public void acompanhar(IPedido pedido) {
         pedido.addObserver(this);
     }
 

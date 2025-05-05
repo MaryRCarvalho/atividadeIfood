@@ -56,7 +56,7 @@ public class PedidoRestaurante extends Observable implements IPedido{
 
     @Override
     public void entregue() {
-        boolean resultado = estado.finalizar(this);
+        boolean resultado = estado.entregue(this);
         if (resultado == true) {
             notificarCliente();
         }
@@ -69,5 +69,11 @@ public class PedidoRestaurante extends Observable implements IPedido{
         if (resultado == true) {
             notificarCliente();
         }
+    }
+
+    @Override
+    public String toString() {
+        return getEstado().getEstado();
+
     }
 }

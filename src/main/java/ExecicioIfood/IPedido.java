@@ -1,5 +1,7 @@
 package ExecicioIfood;
 
+import java.util.Observer;
+
 public interface IPedido {
 
     void setItemPedido(String itemPedido);
@@ -11,4 +13,5 @@ public interface IPedido {
     void entregue();
     void cancelado();
 
+    void addObserver(Observer cliente);
 }

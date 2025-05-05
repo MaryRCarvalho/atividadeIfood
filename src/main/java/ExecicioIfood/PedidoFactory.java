@@ -6,7 +6,7 @@ public class PedidoFactory {
         Class classe = null;
         Object objeto = null;
         try {
-            classe = Class.forName("ExecicioIfood" + pedido);
+            classe = Class.forName("ExecicioIfood." + pedido);
             objeto = classe.newInstance();
         } catch (Exception ex) {
             throw new IllegalArgumentException("Pedido inexistente");

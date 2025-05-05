@@ -16,7 +16,7 @@ public abstract class PedidoEstado {
         return false;
     }
 
-    public boolean finalizar(IPedido pedido) {
+    public boolean entregue(IPedido pedido) {
         return false;
     }
 
